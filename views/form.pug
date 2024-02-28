@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    h1="Make a message"
+     form(method='POST', action='/new')
+        input(name='messageUser')
+        input(name='messageText')
+        input(type="button" value="Submit")
