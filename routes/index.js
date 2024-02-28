@@ -18,15 +18,16 @@ const messages = [
 router.get('/', function(req, res, next) {
   res.render('index', { title: "Mini Messageboard", messages: messages })
 });
+
 router.get('/new', function(req, res, next) {
   res.render('form')
 });
 
-
-app.post('/new', function(req, res) {
-  const place = req.body;
-  console.log(place.messageText)
-  messages.push({text: place.messageText, user: place.messageUser, added: new Date()});
+router.post('/new', function(req, res, next) {
+  const place = req.body.messageText;
+  const exist = req.body.messageUser;
+  messages.push({text: place, user: exist, added: new Date()});
   res.redirect('/');
 });
+
 module.exports = router;
