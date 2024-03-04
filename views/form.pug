@@ -1,8 +1,9 @@
 extends layout
 
 block content
-    h1="Make a message"
      form(method='POST', action='/new')
-        input(name='messageUser' placeholder='Username')
-        input(name='messageText' placeholder='Text' style='margin-left: 5px;')
-        input(type="submit" value="Submit")
+        label(for='messageUser') User: 
+        input#messageUser(name='messageUser' placeholder='Username')
+        label(for='messageText' style='margin-left: 5px;') Message: 
+        input#messageText(name='messageText' placeholder='Text')
+        input(type="submit" value="Submit" style='margin-left: 5px;')

@@ -1,16 +1,18 @@
 var express = require('express');
 var router = express.Router();
 
+const date = new Date();
+
 const messages = [
   {
     text: "Hi there!",
     user: "Amando",
-    added: new Date()
+    added: date.toDateString()
   },
   {
     text: "Hello World!",
     user: "Charles",
-    added: new Date()
+    added: date.toDateString()
   }
 ];
 
@@ -26,7 +28,8 @@ router.get('/new', function(req, res, next) {
 router.post('/new', function(req, res, next) {
   const place = req.body.messageText;
   const exist = req.body.messageUser;
-  messages.push({text: place, user: exist, added: new Date()});
+  const date = new Date();
+  messages.push({text: place, user: exist, added: date.toDateString()});
   res.redirect('/');
 });
 
